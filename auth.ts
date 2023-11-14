@@ -8,13 +8,18 @@ export const config = {
   theme: {
     logo: "https://next-auth.js.org/img/logo/logo-sm.png",
   },
-  providers: [GitHub],
+  providers: [
+    GitHub({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }),
+  ],
   callbacks: {
-    authorized({ request, auth }) {
-      const { pathname } = request.nextUrl;
-      if (pathname === "/middleware-example") return !!auth;
-      return true;
-    },
+    // authorized({ request, auth }) {
+    //   const { pathname } = request.nextUrl;
+    //   if (pathname === "/middleware-example") return !!auth;
+    //   return true;
+    // },
   },
 } satisfies NextAuthConfig;
 
