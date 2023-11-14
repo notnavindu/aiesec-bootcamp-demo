@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 
 import type { NextAuthConfig } from "next-auth";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
 
 export const config = {
   theme: {
