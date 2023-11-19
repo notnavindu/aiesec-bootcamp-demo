@@ -1,28 +1,42 @@
-import CustomLink from "@/components/custom-link"
-import packageJSON from "../package.json"
+import CustomLink from "@/components/custom-link";
+import packageJSON from "../package.json";
+import FeedCard from "@/components/feed-card";
+import TopPerson from "@/components/top-person";
 
 export default function Index() {
   return (
-    <div className="space-y-2">
+    <div className="">
       <h1 className="text-3xl font-bold">NextAuth.js Example</h1>
-      <p>
-        This is an example site to demonstrate how to use{" "}
-        <CustomLink href="https://nextjs.authjs.dev">NextAuth.js</CustomLink>{" "}
-        for authentication. Check out the{" "}
-        <CustomLink href="/server-example" className="underline">
-          Server
-        </CustomLink>{" "}
-        and the{" "}
-        <CustomLink href="/client-example" className="underline">
-          Client
-        </CustomLink>{" "}
-        examples to see how to secure pages and get session data.
-      </p>
-      <p>
-        Current{" "}
-        <CustomLink href="https://nextjs.authjs.dev">NextAuth.js</CustomLink>{" "}
-        version: <em>next-auth@{packageJSON.dependencies["next-auth"]}</em>
-      </p>
+
+      <h2 className="text-xl mt-4">Top 6 Slappers</h2>
+
+      <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+      </div>
+
+      <div className="w-full my-8 h-px bg-slate-800"></div>
+      <h2 className="text-xl mt-4">Top 6 Slappees</h2>
+
+      <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+        <TopPerson />
+      </div>
+      <div className="w-full my-8 h-px bg-slate-800"></div>
+
+      <h2 className="text-xl mt-4">Slap Feed</h2>
+
+      <div className="mt-2">
+        <FeedCard />
+      </div>
     </div>
-  )
+  );
 }
