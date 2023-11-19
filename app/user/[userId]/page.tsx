@@ -4,7 +4,7 @@ import { useSlapStore } from "@/lib/hooks/use-slaps";
 import { Minus, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function Index() {
+export default function Page() {
   const [slaps, setSlaps] = useState(0);
 
   useEffect(() => {

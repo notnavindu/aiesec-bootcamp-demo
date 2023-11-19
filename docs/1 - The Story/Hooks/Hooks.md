@@ -8,3 +8,6 @@ Docs - https://react.dev/reference/react/hooks
 - useRef
 - useRef
 - [[useEffect Hook|useEffect]]
+
+## Custom Hooks
+Docs - https://react.dev/learn/reusing-logic-with-custom-hooks

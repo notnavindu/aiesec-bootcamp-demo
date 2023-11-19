@@ -1,7 +1,7 @@
 import CustomLink from "@/components/custom-link";
 import packageJSON from "../package.json";
 import FeedCard from "@/components/feed-card";
-import TopPerson from "@/components/top-person";
+import UserCard from "@/components/user-card";
 
 export default function Index() {
   return (
@@ -11,24 +11,24 @@ export default function Index() {
       <h2 className="text-xl mt-4">Top 6 Slappers</h2>
 
       <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
+        {/* <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard /> */}
       </div>
 
       <div className="w-full my-8 h-px bg-slate-800"></div>
       <h2 className="text-xl mt-4">Top 6 Slappees</h2>
 
       <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
-        <TopPerson />
+        {/* <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard />
+        <UserCard /> */}
       </div>
       <div className="w-full my-8 h-px bg-slate-800"></div>
 
