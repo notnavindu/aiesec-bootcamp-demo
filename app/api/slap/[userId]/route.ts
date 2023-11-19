@@ -6,6 +6,7 @@ export const POST = auth(async (req) => {
   if (!req.auth) {
     return Response.json({ message: "Not authenticated" }, { status: 401 });
   }
+
   const { count, slappee } = await req.json();
   await slapUser(req.auth.user.id, slappee, count);
 

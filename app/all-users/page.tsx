@@ -8,7 +8,7 @@ export default async function Page() {
     <div className="flex flex-col gap-2">
       {users.length > 0 ? (
         users.map((user) => (
-          <div key={user._id.toString()}>
+          <div key={user._id!.toString()}>
             <UserCard user={user} />
           </div>
         ))

@@ -1,6 +1,9 @@
+import { Slap } from "@/lib/types/Slap";
 import React from "react";
 
-type Props = {};
+type Props = {
+  slap: Slap;
+};
 
 const FeedCard = (props: Props) => {
   return (
@@ -9,19 +12,19 @@ const FeedCard = (props: Props) => {
         <span className="font-bold flex gap-2 ">
           <img
             className="w-6 h-6 bg-white rounded-full"
-            src="https://api.dicebear.com/7.x/notionists/svg?seed=Smokey"
+            src={props.slap.slapper.image}
           />
-          Some guy
+          {props.slap.slapper.name}
         </span>{" "}
         slapped
         <span className="font-bold flex gap-2">
           <img
             className="w-6 h-6 bg-white rounded-full"
-            src="https://api.dicebear.com/7.x/notionists/svg?seed=Smodkeyss"
+            src={props.slap.slappee.image}
           />
-          Another Guy
+          {props.slap.slappee.name}
         </span>{" "}
-        55 times.
+        {props.slap.count} times.
       </div>
     </div>
   );

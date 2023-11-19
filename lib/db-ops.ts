@@ -48,13 +48,16 @@ export const slapUser = async (
   await Promise.all([
     slapsCollection.insertOne({
       count: count,
+      createdAt: new Date(),
       slappee: {
         _id: slappee?._id!,
-        name: slapperId,
+        name: slappee.name,
+        image: slappee.image,
       },
       slapper: {
         _id: slapper?._id!,
-        name: slapperId,
+        name: slapper.name,
+        image: slapper.image,
       },
     }),
 
@@ -62,7 +65,7 @@ export const slapUser = async (
       { _id: slapper._id },
       {
         $inc: {
-          slapsGiven: 1,
+          slapsGiven: count,
         },
       }
     ),
@@ -70,7 +73,7 @@ export const slapUser = async (
       { _id: slappee._id },
       {
         $inc: {
-          slapsRecieved: 1,
+          slapsRecieved: count,
         },
       }
     ),
@@ -79,13 +82,43 @@ export const slapUser = async (
   client.close();
 };
 
-export const getTopSlappers = async (id: string) => {
+export const getTopSlappers = async () => {
   const client = await dbConnect();
   const db = client.db();
-  const usersCollection = db.collection(Collections.USERS);
-  const user = await usersCollection.findOne({ _id: new ObjectId(id) });
+  const usersCollection = db.collection<User>(Collections.USERS);
+  const users = await usersCollection
+    .find({ slapsGiven: { $gt: 0 } })
+    .sort({ slapsGiven: -1 })
+    .limit(6)
+    .toArray();
 
   client.close();
 
-  return user as User;
+  return users as User[];
+};
+
+export const getTopSlappees = async () => {
+  const client = await dbConnect();
+  const db = client.db();
+  const usersCollection = db.collection<User>(Collections.USERS);
+  const users = await usersCollection
+    .find({ slapsRecieved: { $gt: 0 } })
+    .sort({ slapsRecieved: -1 })
+    .limit(6)
+    .toArray();
+
+  client.close();
+
+  return users as User[];
+};
+
+export const getSlapFeed = async () => {
+  const client = await dbConnect();
+  const db = client.db();
+  const slapsCollection = db.collection<Slap>(Collections.SLAPS);
+  const feed = await slapsCollection.find({}).sort({ createdAt: -1 }).toArray();
+
+  client.close();
+
+  return feed as Slap[];
 };

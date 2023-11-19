@@ -1,12 +1,12 @@
-import { getTopSlappers } from "@/lib/db-ops";
+import { getSlapFeed } from "@/lib/db-ops";
 import { NextResponse } from "next/server";
 
 export const GET = async (req: Request) => {
-  const slappers = await getTopSlappers();
+  const feed = await getSlapFeed();
 
   return NextResponse.json(
     {
-      slappers,
+      feed,
     },
     { status: 200 }
   );
