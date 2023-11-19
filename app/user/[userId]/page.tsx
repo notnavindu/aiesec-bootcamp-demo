@@ -1,34 +1,12 @@
-"use client";
 import FeedCard from "@/components/feed-card";
-import { useSlapStore } from "@/lib/hooks/use-slaps";
+import Slapper from "@/components/user/slapper";
+import { getUserById } from "@/lib/db-ops";
+import { useSlapStore } from "@/lib/hooks/use-slaps-store";
 import { Minus, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function Page() {
-  const [slaps, setSlaps] = useState(0);
-
-  useEffect(() => {
-    console.log("🚀 This runs on page load");
-
-    return () => {
-      console.log("🚀 This runs on page unload");
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log(`🚀 This runs when 'slaps' value changes. (👋 x ${slaps})`);
-  }, [slaps]);
-
-  const incrementSlaps = () => {
-    setSlaps(slaps + 1);
-  };
-
-  const decrementSlaps = () => {
-    if (slaps > 0) {
-      setSlaps(slaps - 1);
-    }
-  };
-
+export default async function Page({ params }: { params: { userId: string } }) {
+  const user = await getUserById(params.userId);
   return (
     <div className="">
       <div className="flex flex-col items-center">
@@ -39,7 +17,7 @@ export default function Page() {
           src="https://api.dicebear.com/7.x/notionists/svg?seed=Smokeey"
         />
 
-        <h1 className="text-2xl mt-2">Navindu Amarakoon</h1>
+        <h1 className="text-2xl mt-2">{user.name}</h1>
       </div>
 
       <div className="flex flex-col justify-center">
@@ -48,31 +26,7 @@ export default function Page() {
           would you like to slap?
         </div>
 
-        <div className=" flex items-center justify-center mt-6">
-          <button
-            onClick={decrementSlaps}
-            className="aspect-square w-20 border-2 rounded-lg border-white/50 flex items-center justify-center"
-          >
-            <Minus />
-          </button>
-          <div className="aspect-square w-20 text-4xl flex items-center justify-center">
-            {slaps}
-          </div>
-          <button
-            onClick={incrementSlaps}
-            className="aspect-square w-20 border-2 rounded-lg border-white/50 flex items-center justify-center"
-          >
-            <Plus />
-          </button>
-        </div>
-      </div>
-
-      <div className="mt-12 flex items-center justify-center text-3xl max-w-md mx-auto flex-wrap">
-        {Array.from({ length: slaps }).map((_, i) => (
-          <div key={i}>
-            <div>👋</div>
-          </div>
-        ))}
+        <Slapper userId={params.userId} />
       </div>
     </div>
   );

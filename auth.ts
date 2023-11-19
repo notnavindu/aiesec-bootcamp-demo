@@ -25,8 +25,6 @@ export const config = {
       return session;
     },
     jwt: async ({ user, token }) => {
-      console.log("JWT");
-
       if (user) {
         token.uid = user.id;
       }

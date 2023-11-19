@@ -1,15 +1,14 @@
-import { create } from "zustand";
+import useSWR from "swr";
 
-interface SlapState {
-  slaps: number;
-  incrementSlaps: () => void;
-  decrementSlaps: () => void;
-}
+export const useTopSlappers = () => {
+  const { data, error, isLoading } = useSWR(
+    `/api/slaps/top-slappers`,
+    (url: string) => fetch(url).then((r) => r.json())
+  );
 
-// this is a global store
-export const useSlapStore = create<SlapState>()((set) => ({
-  slaps: 0,
-  incrementSlaps: () => set((state) => ({ slaps: state.slaps + 1 })),
-  decrementSlaps: () =>
-    set((state) => ({ slaps: state.slaps > 0 ? state.slaps - 1 : 0 })),
-}));
+  return {
+    topSlappers: data,
+    isLoading,
+    isError: error,
+  };
+};
