@@ -1,12 +1,12 @@
 "use client";
 
-import { useTopSlappees } from "@/lib/hooks/use-slaps";
+import { useSlapFeed } from "@/lib/hooks/use-slaps";
 import UserCard from "../user-card";
 
 type Props = {};
 
 const TopSlappees = (props: Props) => {
-  const { topSlappees, isLoading, isError } = useTopSlappees();
+  const { topSlappees, isLoading, isError } = useSlapFeed();
 
   return (
     <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-2">

@@ -1,7 +1,6 @@
 "use client";
 
-import { useSlapFeed, useTopSlappees } from "@/lib/hooks/use-slaps";
-import UserCard from "../user-card";
+import { useSlapFeed } from "@/lib/hooks/use-slaps";
 import FeedCard from "../feed-card";
 
 type Props = {};
