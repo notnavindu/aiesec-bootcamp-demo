@@ -1,3 +1,7 @@
+---
+done: false
+---
+
 Libraries:
 - **Zustand** (🔥)
 - Jotai
@@ -17,3 +21,11 @@ export const useSlapStore = create()((set) => ({
 }));
 
 ```
+
+2. Then use it like
+```ts
+const slaps = useSlapStore((state) => state.slaps)
+const incrementSlaps = useSlapStore((state) => state.incrementSlaps)
+```
+
+Zustand Docs  - https://docs.pmnd.rs/zustand/getting-started/introduction

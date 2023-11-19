@@ -9,6 +9,10 @@ export default function Index() {
 
   useEffect(() => {
     console.log("🚀 This runs on page load");
+
+    return () => {
+      console.log("🚀 This runs on page unload");
+    };
   }, []);
 
   useEffect(() => {
