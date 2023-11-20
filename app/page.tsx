@@ -9,7 +9,7 @@ import SlapFeed from "@/components/home/slap-feed";
 export default function Index() {
   return (
     <div className="">
-      <h1 className="text-3xl font-bold">NextAuth.js Example</h1>
+      <h1 className="text-3xl font-bold">Next.js Example</h1>
 
       <h2 className="text-xl mt-4">Top 6 Slappers</h2>
 

@@ -3,7 +3,7 @@ import { User } from "../types/User";
 import { Slap } from "../types/Slap";
 
 export const useSlapFeed = () => {
-  const { data, error, isLoading } = useSWR(`/api/slaps/feed`, (url: string) =>
+  const { data, error, isLoading } = useSWR(`/api/slaps`, (url: string) =>
     fetch(url).then((r) => r.json())
   );
   console.log("🚀 ~ file: use-slaps.ts:34 ~ useSlapFeed ~ data:", data);

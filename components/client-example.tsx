@@ -1,45 +1,8 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { useState } from "react";
-import SessionData from "./session-data";
 import CustomLink from "./custom-link";
-
-const UpdateForm = () => {
-  const { data: session, update } = useSession();
-  const [name, setName] = useState(session?.user?.name ?? "");
-
-  if (!session?.user) return null;
-  return (
-    <>
-      <h2 className="text-xl font-bold">Updating the session</h2>
-      <form
-        onSubmit={async () => {
-          if (session) {
-            const newSession = await update({
-              ...session,
-              user: { ...session.user, name },
-            });
-            console.log({ newSession });
-          }
-        }}
-        className="flex items-center w-full max-w-sm space-x-2"
-      >
-        <Input
-          type="text"
-          placeholder={session.user.name ?? ""}
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <Button type="submit">Update</Button>
-      </form>
-    </>
-  );
-};
+import SessionData from "./session-data";
 
 export default function ClientExample() {
   const { data: session, status } = useSession();
@@ -75,7 +38,6 @@ export default function ClientExample() {
       ) : (
         <SessionData session={session} />
       )}
-      <UpdateForm />
     </div>
   );
 }

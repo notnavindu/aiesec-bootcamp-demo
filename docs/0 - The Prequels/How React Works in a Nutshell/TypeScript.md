@@ -17,12 +17,12 @@ done:
 3. **Editor Support:** TypeScript integrates well with editors like Visual Studio Code, providing features like autocompletion, type checking, and better refactoring tools, leading to a more efficient development experience.
     
 4. **Early Error Detection:** With static typing, many errors can be caught at compile-time, reducing the likelihood of runtime errors and making the debugging process more straightforward.
-    ddddddddddddddddd
+    
 5. **Enhanced Tooling:** TypeScript offers a rich set of tools, including interfaces, enums, and advanced type features, enabling developers to express complex data structures and design patterns more effectively.
 
 ## Explicit types
 ```ts
-const message: string;
+let message: string;
 ```
 
 ## Infer types

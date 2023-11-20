@@ -4,8 +4,9 @@
 
 ---
 
-# Hi, I'm Navindu. 👋
+# Ayubowan, I'm Navindu. 👋
 
+OEVP MKT - AIESEC in SLIIT 21.22
 Full-Stack Developer
 Director, Unwir (PVT) Ltd. [unwir.dev](https://unwir.dev)
 
