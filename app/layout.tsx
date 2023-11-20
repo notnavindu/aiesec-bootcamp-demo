@@ -18,7 +18,6 @@ export default async function RootLayout({
 }: React.PropsWithChildren) {
   const session = await auth();
 
-  console.log(session);
   return (
     <html lang="en">
       <body className={inter.className}>

@@ -22,11 +22,7 @@ export default function Index() {
 
       <div className="w-full my-8 h-px bg-slate-800"></div>
 
-      <h2 className="text-xl mt-4">Slap Feed</h2>
-
-      <div className="mt-2">
-        <SlapFeed />
-      </div>
+      <SlapFeed />
     </div>
   );
 }
