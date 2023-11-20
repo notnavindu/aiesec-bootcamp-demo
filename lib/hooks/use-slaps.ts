@@ -5,7 +5,7 @@ import { Slap } from "../types/Slap";
 export const useSlapFeed = () => {
   const { data, error, isLoading, mutate } = useSWR(
     `/api/slaps`,
-    (url: string) => fetch(url).then((r) => r.json())
+    (url: string) => fetch(url, { cache: "no-store" }).then((r) => r.json())
   );
 
   return {

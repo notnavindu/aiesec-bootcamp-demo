@@ -118,6 +118,7 @@ export const getSlapFeed = async () => {
   const slapsCollection = db.collection<Slap>(Collections.SLAPS);
   const feed = await slapsCollection.find({}).sort({ createdAt: -1 }).toArray();
 
+  console.log(feed);
   client.close();
 
   return feed as Slap[];

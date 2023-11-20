@@ -1,3 +1,6 @@
 - Firebase integration https://firebase.google.com/
 - tRPC https://trpc.io/
 - Validators (Zod, Yup)
+- SvelteKit Perhaps?
+- Link Shorteners
+- Redis

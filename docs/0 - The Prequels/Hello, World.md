@@ -1,6 +1,5 @@
 
-
-.
+## Building Next _(.js)_ Level Apps That **Slap.**
 
 ---
 
